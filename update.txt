@@ -1,0 +1,19 @@
+username = getUsername()
+client = HttpClient.new()
+client.url = "https://raw.githubusercontent.com/Falimby/LicencySC/LicenceTutor/"..username
+local response = client:request().body
+
+if response:find("404") then
+    print("Anda Belum Bayar, Kalau Sudah Chat Admin")
+    messageBox = MessageBox.new()
+    messageBox.title = "WanxSyn STORE "
+    messageBox.description = "USERNAME Tidak Terdaftar"
+    messageBox:send()
+    getBot():stopScript()
+else
+    messageBox = MessageBox.new()
+    messageBox.title = "WanxSyn STORE "
+    messageBox.description = "UDAH UPDATE BOS CEK DISCORD"
+    messageBox:send()
+    getBot():stopScript()
+end
